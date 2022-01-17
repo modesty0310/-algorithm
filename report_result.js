@@ -6,9 +6,7 @@ function solution(id_list, report, k) {
   report_set.forEach(r => {
     report_num[id_list.indexOf(r.split(' ')[1])] = report_num[id_list.indexOf(r.split(' ')[1])] + 1 || 1; 
     report_id[id_list.indexOf(r.split(' ')[0])].push(r.split(' ')[1])
-    console.log(id_list.indexOf(r.split(' ')[0]));
   });
-  console.log(report_id);
   report_num.forEach((num, index) => {
     if(num >= k){
       report_id.forEach((id,i) => {
@@ -18,7 +16,6 @@ function solution(id_list, report, k) {
       })
     }
   })
-  console.log(answer);
   return answer;
 }
 
