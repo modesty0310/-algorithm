@@ -11,17 +11,21 @@ function mergeSort (arr) {
 
   while(groupOne.length != 0 && groupTwo.length != 0){
     if(groupOne[0] < groupTwo[0]){
+      console.log(`groupOne : ${groupOne}, grouptwo : ${groupTwo}\n`);
       result.push(groupOne.shift());
     }else{
+      console.log(`groupOne : ${groupOne}, grouptwo : ${groupTwo}\n`);
       result.push(groupTwo.shift());
     }
   }
 
   while(groupOne.length != 0){
+    console.log(`groupOne : ${groupOne}, grouptwo : ${groupTwo}\n`);
     result.push(groupOne.shift());
   }
 
   while(groupTwo.length != 0){
+    console.log(`groupOne : ${groupOne}, grouptwo : ${groupTwo}\n`);
     result.push(groupTwo.shift());
   }
 

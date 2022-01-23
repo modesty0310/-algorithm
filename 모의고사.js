@@ -10,7 +10,6 @@ function solution(answers) {
   });
 
   let maxNum = Math.max(...scores);
-  console.log(maxNum);
 
   for(let i = 0; i < 3; i++){
     if(scores[i] == maxNum){
@@ -20,13 +19,13 @@ function solution(answers) {
 
 
   function checkAnswer(num, index) {
-    if(num == first[index%(first.length+1)]){
+    if(num == first[index%(first.length)]){
       scores[0]++;
     }
-    if(num == second[index%(second.length+1)]){
+    if(num == second[index%(second.length)]){
       scores[1]++;
     }
-    if(num == third[index%(third.length+1)]){
+    if(num == third[index%(third.length)]){
       scores[2]++;
     }
   }
