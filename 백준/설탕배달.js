@@ -34,4 +34,4 @@ function solution (input) {
 
 }
 
-solution(5000);
+solution(input);
