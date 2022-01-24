@@ -32,6 +32,19 @@ function solution(n, arr1, arr2) {
   return answer;
 }
 
-console.log(solution(5
+// single vertical bar -> false인 값이 아닌 수로 | 사용시 2진법의 각자리 끼리 더한 수의 10진법 수를 반환
+function solution2 (n, arr1, arr2) {
+  // map 는 새로운 배열을 반환함.
+  return arr1.map((a,i) => {
+    return addZero(n, (a | arr2[i]).toString(2)).replace(/0/g,' ').replace(/1/g,'#');
+  });
+}
+
+function addZero(n, a){
+  // 특정 횟수 만큼 반복
+  return '0'.repeat(n - a.length) + a; 
+}
+
+console.log(solution2(5
   ,[9, 20, 28, 18, 11]
   ,[30, 1, 21, 17, 28]));
