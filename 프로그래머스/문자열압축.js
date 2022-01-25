@@ -25,5 +25,30 @@
 
 function solution(s) {
   let answer = 0;
+  let stringsLength = [];
+  const length = s.length;
+  if(length == 1) return 1;
+
+  // 자를 개수
+  for(let i = 1; i <= parseInt(length)/2; i++){
+    let count = 1;
+    let string = '';
+    // index 증가 -> 처음 부터 정해진 길이만큼 잘라야 함.
+    for(let j = 0; j < length; j += i){
+      let current = s.substr(j, i);
+      let next = s.substr(j+i, i);
+      if(current == next){
+        count++;
+      }else{
+        string = count > 1 ? string + count + current : string + current;
+        count = 1
+      }
+    }
+    stringsLength.push(string.length);
+  }
+  answer = Math.min(...stringsLength);
+
   return answer;
 }
+
+console.log(solution("s"));
