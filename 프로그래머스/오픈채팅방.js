@@ -68,10 +68,8 @@ function solution(record) {
   const user = {};
   for(info of record){
     let infoSplit = info.split(" ");
-    console.log(infoSplit.length);
     if(infoSplit.length == 3){
       user[infoSplit[1]] = infoSplit[2];
-      console.log(user);
     }
   };
   for(info of record){
