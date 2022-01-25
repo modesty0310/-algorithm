@@ -22,4 +22,16 @@ function getGCD (num1, num2) {
   return num2 > 0 ? getGCD(num2, num1 % num2) : num1;
 }  
 
-console.log(solution(8, 12));
+console.log(solution2(8, 12));
+
+function solution2(w, h) {
+  const slope = h / w;
+  let result = 0;
+
+  for(let i = 1; i <= w; i++){
+    result += Math.ceil(slope * i);
+    console.log(result);
+  }
+
+  return ((w * h) - result) * 2;
+}
