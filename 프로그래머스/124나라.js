@@ -28,4 +28,11 @@ function solution(n) {
   return answer;
 }
 
-console.log(solution(15));
+// 재귀함수
+function change124(n) {
+  const notation = [4,1,2];
+  return n == 0 ? '' : change124(parseInt((n - 1) / 3)) + notation[n % 3]
+}
+
+console.log(solution(1024));
+console.log(change124(1024));
