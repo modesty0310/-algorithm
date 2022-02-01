@@ -42,7 +42,6 @@ function solution(str1, str2) {
   str2 = str2.toUpperCase();
   for(let i = 0; i < str1.length-1; i++){
     let tmp = str1.substr(i, 2);
-    console.log(tmp);
     if(tmp.search(/[^A-Z]/g) >= 0){
       continue;
     }
