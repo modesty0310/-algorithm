@@ -47,12 +47,10 @@ function solution(s) {
   let answer = [];
   s.map(v => {
     v = v.split(',')
-    console.log(v);
     for(let i = 0; i< v.length; i++){
       if(answer.indexOf(v[i]) === -1) answer.push(v[i]);
     }
   })
-  console.log(answer);
   return answer;
 }
 

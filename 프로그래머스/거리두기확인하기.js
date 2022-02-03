@@ -27,9 +27,9 @@ places에 담겨 있는 5개 대기실의 순서대로, 거리두기 준수 여�
 function solution(places) {
   var answer = [];
   places.map(place => {
-    for(let i = 0; i < 5; i++){
-      for(let j = 0; j < 5; j++){
-        console.log(place[i][j]);
+    for (let i = 0; i < 5; i++) {
+      for (let j = 0; j < 5; j++) {
+
       }
     }
   })
