@@ -41,3 +41,50 @@ course 배열에는 같은 값이 중복해서 들어있지 않습니다.
 만약 가장 많이 함께 주문된 메뉴 구성이 여러 개라면, 모두 배열에 담아 return 하면 됩니다.
 orders와 course 매개변수는 return 하는 배열의 길이가 1 이상이 되도록 주어집니다.
 */
+
+function solution(orders, course) {
+  var answer = [];
+  let results = [];
+
+  function combination (arr, selectnum){
+    const result = [];
+    if(selectnum === 1) {
+      return arr
+    }
+
+    arr.forEach((fixed, index, origin) => {
+      const rest = origin.slice(index+1);
+      const combine = combination(rest, selectnum - 1);
+      const attached = combine.map(el => [fixed, ...el]);
+      result.push(...attached);
+    });
+    
+    return result;
+  }
+  for(count in course) {
+    results.push({})
+    orders.map(order => {
+      order = order.split('').sort();
+      let result = combination(order, course[count]);
+      result.forEach(r => {
+        r = r.join('');
+        results[count][r] = !results[count][r] ? 1 : results[count][r] + 1;
+      });
+    })
+  };
+
+  results.map(result => {
+    let max = 1;
+    for(i in result) {
+      if(result[i] > max) max = result[i];
+    }
+    for(j in result) {
+      if(result[j] === max && max > 1) answer.push(j);
+    }
+  })
+
+
+  return answer.sort();
+}
+
+console.log(solution(["ABCDE", "AB", "CD", "ADE", "XYZ", "XYZ", "ACD"], [2,3,5]));
