@@ -1,35 +1,25 @@
-function mergeSort (arr) {
-  let arrLength = arr.length;
-  let result = []
-  if(arrLength <= 1){
-    return arr;
-  }
+function merge(left, right) {
+  const sortedArr = [];
 
-  let arrMiddleLength = parseInt(arrLength/2);
-  let groupOne = mergeSort(arr.slice(0,arrMiddleLength));
-  let groupTwo = mergeSort(arr.slice(arrMiddleLength,));
-
-  while(groupOne.length != 0 && groupTwo.length != 0){
-    if(groupOne[0] < groupTwo[0]){
-      console.log(`groupOne : ${groupOne}, grouptwo : ${groupTwo}\n`);
-      result.push(groupOne.shift());
-    }else{
-      console.log(`groupOne : ${groupOne}, grouptwo : ${groupTwo}\n`);
-      result.push(groupTwo.shift());
+  while( left.length && right.length ) {
+    if(left[0] <= right[0]) {
+      sortedArr.push(left.shift())
+    }else {
+      sortedArr.push(right.shift())
     }
   }
 
-  while(groupOne.length != 0){
-    console.log(`groupOne : ${groupOne}, grouptwo : ${groupTwo}\n`);
-    result.push(groupOne.shift());
-  }
+  return [...sortedArr, ...left, ...right];
+}
 
-  while(groupTwo.length != 0){
-    console.log(`groupOne : ${groupOne}, grouptwo : ${groupTwo}\n`);
-    result.push(groupTwo.shift());
-  }
+function mergeSort(arr) {
+  if(arr.length === 1) return arr;
 
-  return result;
+  const middleIdx = Math.ceil(arr.length / 2);
+  const left = arr.slice(0, middleIdx);
+  const right = arr.slice(middleIdx);
+
+  return merge(mergeSort(left), mergeSort(right));
 }
 
 console.log(mergeSort([34,25,67,11,7,54,87,9]));
